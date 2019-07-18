@@ -9,6 +9,10 @@ void getvocab(const char *outputFile, const char *inputFile1, const char *inputF
 void applybpe(const char *outputFile, const char *inputFile, const char *codesPath, const char *vocabPath);
 void applybpe_stream(const char *codesPath, const char *vocabPath);
 
+void* BPEApplyer_new(const char *codesPath, const char *vocabPath);
+void  BPEApplyer_del(void* o);
+char* BPEApplyer_apply(void* o, const char* s);
+
 #ifdef __cplusplus
 }
 #endif

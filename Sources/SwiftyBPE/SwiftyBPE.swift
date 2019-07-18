@@ -1,5 +1,19 @@
 import CFastBPE
 
+public class BPE {
+  var _obj:UnsafeMutableRawPointer?
+
+  public init(codes:String, vocab:String="") { _obj = BPEApplyer_new(codes, vocab) }
+  deinit { BPEApplyer_del(_obj) }
+
+  public func apply(_ s:String)->String {
+    let cstr = BPEApplyer_apply(_obj, s)
+    let res = String(cString: cstr!)
+    free(cstr)
+    return res
+  }
+}
+
 public func getVocab(output:String, input1:String, input2:String="") {
   getvocab(output, input1, input2)
 }

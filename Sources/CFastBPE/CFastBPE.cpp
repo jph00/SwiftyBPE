@@ -18,6 +18,14 @@ void applybpe_stream(const char *codesPath, const char *vocabPath) {
   fastBPE::applybpe_stream(codesPath, vocabPath);
 }
 
+void* BPEApplyer_new(const char *codesPath, const char *vocabPath) { return new fastBPE::BPEApplyer(codesPath, vocabPath); }
+void BPEApplyer_del(void* o) { delete((fastBPE::BPEApplyer*)o); }
+char* BPEApplyer_apply(void* o, const char* s) {
+  std::string str(s);
+  auto res = ((fastBPE::BPEApplyer*)o)->apply(str);
+  return strdup(res.c_str());
+}
+
 #ifdef __cplusplus
 }
 #endif

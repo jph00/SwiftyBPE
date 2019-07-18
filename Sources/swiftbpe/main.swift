@@ -30,7 +30,8 @@ if cmd=="getvocab" {
 } else if cmd=="applybpe" {
   applyBpe(output:args[2], input:args[3], codes:args[4], vocab:args.count<6 ? "" : args[5])
 } else if cmd=="applybpe_stream" {
-  applyBpeStream(codes:args[2], vocab:args.count<4 ? "" : args[3])
+  let o = BPE(codes:args[2], vocab:args.count<4 ? "" : args[3])
+  while let s = readLine() { print(o.apply(s)) }
 } else {
   fatalError("unknown cmd \(cmd)")
 }
