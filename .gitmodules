@@ -1,0 +1,3 @@
+[submodule "modules/fastBPE"]
+	path = modules/fastBPE
+	url = git@github.com:jph00/fastBPE.git

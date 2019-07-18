@@ -3,12 +3,13 @@ import PackageDescription
 
 let package = Package( name: "SwiftyBPE",
     products: [
-        .executable( name: "swiftybpe", targets: ["swiftybpe"]),
+        .executable( name: "swiftbpe", targets: ["swiftbpe"]),
         .library( name: "CFastBPE", targets: ["CFastBPE"]),
     ],
     targets: [
-        .target( name: "swiftybpe", dependencies: ["CFastBPE"]),
-        .target( name: "CFastBPE",  linkerSettings: [.linkedLibrary("pthread")]),
+        .target( name: "swiftbpe", dependencies: ["CFastBPE"]),
+        .target( name: "CFastBPE",  dependencies: ["fastBPE"]),
+        .target( name: "fastBPE",  linkerSettings: [.linkedLibrary("pthread")]),
     ]
 )
 
