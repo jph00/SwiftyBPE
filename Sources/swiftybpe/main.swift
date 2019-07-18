@@ -1,4 +1,4 @@
 import CFastBPE
 
-learnbpe(10, "main.cc", "")
+learnbpe(30, "data/greeneggs.txt", "")
 
