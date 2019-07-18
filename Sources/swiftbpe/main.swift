@@ -1,4 +1,5 @@
-import CFastBPE
+import Foundation
+import SwiftyBPE
 
 func printUsage() {
   print("""
@@ -21,13 +22,13 @@ if args.count<2 {
 
 let cmd = args[1]
 if cmd=="getvocab" {
-  getvocab(args[2], args[3], args.count<5 ? "" : args[4])
+  getVocab(output:args[2], input1:args[3], input2:args.count<5 ? "" : args[4])
 } else if cmd=="learnbpe" {
-  learnbpe(numericCast(Int(args[2])!), args[3], args[4], args.count<6 ? "" : args[5])
+  learnBpe(nCodes:Int(args[2])!, output:args[3], input1:args[4], input2:args.count<6 ? "" : args[5])
 } else if cmd=="applybpe" {
-  applybpe(args[2], args[3], args[4], args.count<6 ? "" : args[5])
+  applyBpe(output:args[2], input:args[3], codes:args[4], vocab:args.count<6 ? "" : args[5])
 } else if cmd=="applybpe_stream" {
-  applybpe_stream(args[2], args.count<4 ? "" : args[3])
+  applyBpeStream(codes:args[2], vocab:args.count<4 ? "" : args[3])
 } else {
   fatalError("unknown cmd \(cmd)")
 }
