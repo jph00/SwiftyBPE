@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyBPE
 
-func printUsage() {
+func printUsage(_ args:[String]) {
   print("""
         usage: swiftybpe <command> <args>
 
@@ -11,12 +11,14 @@ func printUsage() {
         learnbpe nCodes output input1 [input2]  |learn BPE codes from one or two text files
         applybpe output input codes [vocab]     |apply BPE codes to a text file
         applybpe_stream codes [vocab]           |apply BPE codes to stdin and output to stdout
+
+        (Received args: \(args))
         """)
 }
 
 let args = CommandLine.arguments
 if args.count<2 {
-  printUsage()
+  printUsage(args)
   exit(0)
 }
 
