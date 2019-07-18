@@ -1,3 +1,0 @@
-[submodule "Sources/CFastBPE/fastBPE"]
-	path = Sources/CFastBPE/fastBPE
-	url = git@github.com:glample/fastBPE.git
