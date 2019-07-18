@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package( name: "SwiftyBPE",
     products: [
         .executable( name: "swiftbpe", targets: ["swiftbpe"]),
-        .library( name: "CFastBPE", targets: ["CFastBPE"]),
+        .library( name: "SwiftyBPE", targets: ["SwiftyBPE"]),
     ],
     targets: [
         .target( name: "swiftbpe", dependencies: ["SwiftyBPE"]),
