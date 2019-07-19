@@ -10,7 +10,7 @@ let package = Package( name: "SwiftyBPE",
         .target( name: "swiftbpe", dependencies: ["SwiftyBPE"]),
         .target( name: "SwiftyBPE", dependencies: ["CFastBPE"]),
         .target( name: "CFastBPE",  dependencies: ["fastBPE"]),
-        .target( name: "fastBPE", linkerSettings: [.linkedLibrary("pthread")]),
+        .target( name: "fastBPE"),
     ]
 )
 
